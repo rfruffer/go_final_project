@@ -53,12 +53,12 @@ func AuthMiddleware(next http.Handler) http.Handler {
 				}
 			}
 
-			// Проверяем хэш пароля
-			hashedPassword := fmt.Sprintf("%x", sha256.Sum256([]byte(pass)))
-			if claims["hash"] != hashedPassword {
-				http.Error(w, "Invalid token", http.StatusUnauthorized)
-				return
-			}
+			// // Проверяем хэш пароля
+			// hashedPassword := fmt.Sprintf("%x", sha256.Sum256([]byte(pass)))
+			// if claims["hash"] != hashedPassword {
+			// 	http.Error(w, "Invalid token", http.StatusUnauthorized)
+			// 	return
+			// }
 		}
 
 		// Если проверка прошла, передаем управление следующему обработчику
